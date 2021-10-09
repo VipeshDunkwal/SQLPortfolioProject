@@ -33,15 +33,15 @@ FROM PortfolioProject.dbo.[NashvilleHousing]
 order by ParcelID
 
 Select a.ParcelID,a.PropertyAddress,b.ParcelID,b.PropertyAddress,isNULL(a.PropertyAddress,b.PropertyAddress)
-FROM PortfolioProject.dbo.[NashvilleHousing] a
+FROM PortfolioProject.dbo.[NashvilleHousing] a                --Just JOINIG the Two Table
 Join PortfolioProject.dbo.[NashvilleHousing] b
      on a.ParcelID=b.ParcelID
 	 ANd a.[UniqueID ]<>b.[UniqueID ]
-where a.PropertyAddress is NULL
+where a.PropertyAddress is NULL            --Checking for Null Property address
 
 
 Update a
-SET PropertyAddress = isNULL(a.PropertyAddress,b.PropertyAddress)
+SET PropertyAddress = isNULL(a.PropertyAddress,b.PropertyAddress)                --Populating the Null PropertyAdress
 FROM PortfolioProject.dbo.[NashvilleHousing] a
 Join PortfolioProject.dbo.[NashvilleHousing] b
      on a.ParcelID=b.ParcelID
