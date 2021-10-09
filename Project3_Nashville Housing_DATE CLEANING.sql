@@ -11,8 +11,8 @@ FROM PortfolioProject.dbo.[NashvilleHousing]
 Select SaleDateConverted,Convert(date,SaleDate)
 FROM PortfolioProject.dbo.[NashvilleHousing]
 
-Update NashvilleHousing
-SET SaleDate= Convert(date,SaleDate)
+--Update NashvilleHousing
+--SET SaleDate= Convert(date,SaleDate)
 
 ALTER Table PortfolioProject.dbo.[NashvilleHousing]
 ADD saleDateConverted Date;
